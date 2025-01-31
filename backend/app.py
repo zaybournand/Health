@@ -235,31 +235,6 @@ def view_application(opportunity_id):
 
     return render_template('application.html', applications=applications, opportunity=opportunity, students=students)
 
-
-
-
-
-@app.route('/delete/<int:id>')
-@login_required
-def delete(id):
-    opportunity_to_delete = Opportunity.query.get_or_404(id)
-    if opportunity_to_delete.professional_id != current_user.id:
-        flash("You are not authorized to delete this opportunity.", "danger")
-        return redirect(url_for('index'))
-    try:
-        db.session.delete(opportunity_to_delete)
-        db.session.commit()
-        flash("Opportunity deleted successfully!", "success")
-        return redirect('/')
-    except Exception as e:
-        flash(f"There was an error deleting the opportunity: {e}", "danger")
-        return redirect('/')
-
-
-
-
-
-
 @app.route('/logout')
 @login_required
 def logout():
