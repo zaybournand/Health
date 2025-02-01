@@ -208,7 +208,6 @@ def apply():
         resume.save(os.path.join(app.config['UPLOAD_FOLDER'], resume_filename))
         # You could save the filename to the user's profile in the database
 
-    # Process the additional application information (e.g., save to the user's profile)
     user = current_user
     user.why_apply = why_apply
     user.additional_info = additional_info
@@ -218,7 +217,6 @@ def apply():
         return jsonify({"message": "Application successfully submitted!"}), 200
     except Exception as e:
         return jsonify({"error": f"There was an error submitting your application: {e}"}), 500
-
 
     
 @app.route('/view_applications/<int:opportunity_id>', methods=['GET'])
