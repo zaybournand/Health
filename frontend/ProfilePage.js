@@ -22,7 +22,7 @@ function ProfilePage() {
         if (savedEmail) setEmail(savedEmail);
         if (savedRole) setRole(savedRole);
         if (savedBio) setBio(savedBio);
-        if (savedResume) setResume(savedResume);  // Assuming you store the resume as a URL or base64 string
+        if (savedResume) setResume(savedResume);  // Assuming you store the resume as a URL 
     }, []);
 
     const handleEditClick = () => {
